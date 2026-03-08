@@ -252,6 +252,89 @@ class CryptoEngine:
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(file_data, f, indent=2)
     
+    def decrypt_message(self, encrypted_message: str, password: str) -> DecryptionResult:
+        """Déchiffre un message texte (format JSON ou hexadécimal)"""
+        try:
+            # Vérifier si c'est du JSON ou de l'hexadécimal
+            if encrypted_message.startswith('{') and encrypted_message.endswith('}'):
+                # Format JSON complet - format pour les fichiers
+                try:
+                    import json
+                    message_data = json.loads(encrypted_message)
+                    encrypted_data = bytes.fromhex(message_data['encrypted_data'])
+                    metadata = message_data.get('metadata', {})
+                    
+                    # La méthode peut être directement dans le JSON ou dans metadata
+                    method = message_data.get('method') or metadata.get('method', 'unknown')
+                    
+                    if method in self.methods:
+                        crypto_method = self.methods[method]
+                        # Pour AES-GCM, passer le JSON complet, pas juste l'hexadécimal
+                        if method == 'aes-gcm-argon2':
+                            result = crypto_method.decrypt(encrypted_message.encode('utf-8'), password)
+                        else:
+                            result = crypto_method.decrypt(encrypted_data, password)
+                        
+                        if result.success:
+                            result.metadata = metadata
+                            return result
+                        else:
+                            return DecryptionResult(
+                                decrypted_data=b'',
+                                metadata={},
+                                success=False,
+                                error_message=result.error_message
+                            )
+                    else:
+                        return DecryptionResult(
+                            decrypted_data=b'',
+                            metadata={},
+                            success=False,
+                            error_message=f"Méthode non disponible: {method}"
+                        )
+                        
+                except json.JSONDecodeError:
+                    return DecryptionResult(
+                        decrypted_data=b'',
+                        metadata={},
+                        success=False,
+                        error_message="Format JSON invalide"
+                    )
+            else:
+                # Format hexadécimal simple - format pour les messages
+                encrypted_data = bytes.fromhex(encrypted_message)
+                
+                # Essayer chaque méthode disponible
+                for method_name, crypto_method in self.methods.items():
+                    try:
+                        result = crypto_method.decrypt(encrypted_data, password)
+                        if result.success:
+                            return result
+                    except:
+                        continue
+                
+                return DecryptionResult(
+                    decrypted_data=b'',
+                    metadata={},
+                    success=False,
+                    error_message="Aucune méthode n'a réussi à déchiffrer ce message"
+                )
+            
+        except ValueError:
+            return DecryptionResult(
+                decrypted_data=b'',
+                metadata={},
+                success=False,
+                error_message="Format hexadécimal invalide"
+            )
+        except Exception as e:
+            return DecryptionResult(
+                decrypted_data=b'',
+                metadata={},
+                success=False,
+                error_message=f"Erreur lors du déchiffrement: {str(e)}"
+            )
+
     def _load_encrypted_file(self, file_path: str) -> Tuple[bytes, Dict[str, Any], str]:
         """Charge un fichier chiffré avec métadonnées"""
         with open(file_path, 'r', encoding='utf-8') as f:

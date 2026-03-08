@@ -7,7 +7,7 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.argon2 import Argon2id
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.hazmat.backends import default_backend
+# from cryptography.hazmat.backends import default_backend  # Plus nécessaire
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
 from cryptography.hazmat.primitives import hmac
@@ -33,7 +33,8 @@ class KeyManager:
     """Gestionnaire de clés cryptographiques"""
     
     def __init__(self):
-        self.backend = default_backend()
+        # self.backend = default_backend()  # Plus nécessaire dans les nouvelles versions
+        pass
     
     def derive_key_argon2(self, password: str, salt: Optional[bytes] = None, 
                          key_length: int = 32, memory_cost: int = 65536,
@@ -64,9 +65,9 @@ class KeyManager:
                 salt=salt,
                 length=key_length,
                 memory_cost=memory_cost,
-                time_cost=time_cost,
-                parallelism=parallelism,
-                backend=self.backend
+                iterations=time_cost,  # Changé de time_cost à iterations
+                lanes=parallelism      # Changé de parallelism à lanes
+                # backend=self.backend  # Supprimé - plus nécessaire
             )
             
             # Dérivation de la clé
@@ -121,8 +122,7 @@ class KeyManager:
                 algorithm=hashes.SHA256(),
                 length=key_length,
                 salt=salt,
-                iterations=iterations,
-                backend=self.backend
+                iterations=iterations
             )
             
             key = kdf.derive(password_bytes)
@@ -173,11 +173,11 @@ class KeyManager:
             KeyPair: Paire de clés RSA sérialisées
         """
         try:
-            # Génération de la clé privée
+            # Génération de la clé privée RSA
             private_key = rsa.generate_private_key(
                 public_exponent=65537,
-                key_size=key_size,
-                backend=self.backend
+                key_size=key_size
+                # backend=self.backend  # Supprimé
             )
             
             # Sérialisation de la clé privée

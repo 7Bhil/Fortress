@@ -101,17 +101,20 @@ class AESGCMArgon2Method(CryptoMethod):
             DecryptionResult: Résultat du déchiffrement
         """
         try:
-            # Parsing des données chiffrées
+            # Vérifier si les données sont en format JSON interne ou hexadécimal simple
             try:
+                # Essayer de décoder comme JSON (format interne)
                 encrypted_json = json.loads(encrypted_data.decode('utf-8'))
                 ciphertext = bytes.fromhex(encrypted_json['encrypted_data'])
                 metadata = encrypted_json['metadata']
-            except (json.JSONDecodeError, KeyError, ValueError) as e:
+            except (json.JSONDecodeError, KeyError, ValueError, UnicodeDecodeError):
+                # Format hexadécimal simple - essayer de reconstruire les métadonnées
+                # Dans ce cas, on ne peut pas déchiffrer sans nonce et salt
                 return DecryptionResult(
                     decrypted_data=b'',
                     metadata={},
                     success=False,
-                    error_message=f"Format de données invalide: {str(e)}"
+                    error_message="Format hexadécimal non supporté pour AES-GCM - nécessite nonce et salt"
                 )
             
             # Vérification de la méthode
@@ -143,21 +146,12 @@ class AESGCMArgon2Method(CryptoMethod):
                     decrypted_data=b'',
                     metadata={},
                     success=False,
-                    error_message=key_result.error_message
+                    error_message=f"Erreur de dérivation de clé: {key_result.error_message}"
                 )
             
             # Déchiffrement avec AES-GCM
             aesgcm = AESGCM(key_result.key)
-            
-            try:
-                decrypted_data = aesgcm.decrypt(nonce, ciphertext, None)
-            except Exception as e:
-                return DecryptionResult(
-                    decrypted_data=b'',
-                    metadata={},
-                    success=False,
-                    error_message=f"Échec du déchiffrement (mot de passe incorrect ou données corrompues): {str(e)}"
-                )
+            decrypted_data = aesgcm.decrypt(nonce, ciphertext, None)
             
             return DecryptionResult(
                 decrypted_data=decrypted_data,
