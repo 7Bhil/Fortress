@@ -1,0 +1,21 @@
+# Environnements virtuels
+venv*/
+venv_*/
+env*/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Fichiers chiffrés
+*.enc
+*.json
+message_chiffre_*
+
+# Clés
+*.pem
+*.key
+
+# Temporaires
+*.tmp
+*~
