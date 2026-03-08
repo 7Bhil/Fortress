@@ -1,53 +1,256 @@
-# 🔐 Outil de Chiffrement Avancé
+# 🏰 Fortress - Framework Cryptographique Universel
 
-Framework cryptographique moderne avec interface en ligne de commande pour le chiffrement/déchiffrement sécurisé de fichiers.
+**Outil de chiffrement accessible à tous - Protégez vos données en 3 clics !**
 
-## 🚀 Fonctionnalités
+---
 
-### Algorithmes de chiffrement supportés
-- **AES-GCM avec Argon2** - Chiffrement moderne avec authentification intégrée
-- **AES-CBC avec HMAC** - Standard éprouvé avec authentification séparée  
-- **ChaCha20-Poly1305** - Alternative rapide à AES, idéale pour mobile
+## 🎯 Démarrage Rapide (Pour les Nuls)
 
-### Outils de sécurité
-- **Analyseur de force de mots de passe** - Évalue la robustesse des mots de passe
-- **Tests d'attaques simulées** - Force brute et dictionnaire
-- **Validation d'intégrité** - Vérification que les fichiers n'ont pas été modifiés
-- **Génération de clés** - Clés AES et RSA sécurisées
-
-### Interface utilisateur
-- **CLI complète** - Interface en ligne de commande intuitive
-- **Affichage coloré** - Messages formatés avec codes couleur
-- **Progression en temps réel** - Suivi des opérations longues
-- **Aide intégrée** - Documentation accessible via `--help`
-
-## 📦 Installation
-
-### Prérequis
-- Python 3.8 ou supérieur
-- pip (gestionnaire de paquets Python)
-
-### Installation des dépendances
+### Étape 1 : Installation
 ```bash
+# Clonez ou téléchargez le projet
+cd votre-dossier/Fortress
+
+# Installez les dépendances
 pip install -r requirements.txt
 ```
 
-### Vérification de l'installation
+### Étape 2 : Premier test
+```bash
+# Lancez Fortress
+python main.py
+```
+
+### Étape 3 : Chiffrez votre premier fichier
+1. Choisissez `1` (Chiffrer)
+2. Choisissez `2` (Chiffrer un fichier)
+3. Entrez le nom de votre fichier
+4. Choisissez `1` (AES-GCM)
+5. Entrez un mot de passe
+
+**🎉 Félicitations ! Votre fichier est maintenant sécurisé !**
+
+---
+
+## 🚀 Fonctionnalités Principales
+
+### 🔐 Chiffrement
+- **TOUS les formats supportés** : PDF, MP4, MP3, ZIP, images...
+- **3 algorithmes militaires** : AES-GCM, AES-CBC, ChaCha20
+- **Interface simplifiée** : Plus besoin de commandes complexes
+
+### 🔓 Déchiffrement
+- **Détection automatique** de la méthode utilisée
+- **Restauration parfaite** des fichiers originaux
+- **Vérification d'intégrité** anti-corruption
+
+### 🛡️ Sécurité
+- **Testeur de mots de passe** : Évaluez vos passwords
+- **Analyse de vulnérabilité** : Simulations d'attaques
+- **Génération de clés** : Créez des clés RSA/AES
+
+---
+
+## 🎮 Mode Interactif (Le plus simple !)
+
+**Lancez simplement :**
+```bash
+python main.py
+```
+
+**Le menu vous guide pas à pas :**
+
+```
+🏰 FORTRESS - Menu Principal
+1. 🔐 Chiffrer
+2. 🔓 Déchiffrer  
+3. 📋 Lister les méthodes
+4. ℹ️ Informations
+5. 🔍 Analyser un fichier
+6. 🔑 Générer des clés
+7. 💪 Tester mot de passe
+8. ❌ Quitter
+```
+
+**Plus besoin de mémoriser des commandes !**
+
+---
+
+## 📁 Cas d'Usage Réels
+
+### 👨‍🎓 Étudiant
+```bash
+# Protéger vos cours
+python main.py
+# 1 → 2 → cours_math.pdf → 1 → "motdepassefort"
+```
+
+### 👨‍💼 Professionnel  
+```bash
+# Sécuriser documents sensibles
+python main.py
+# 1 → 2 → rapport_confidentiel.docx → 1 → "password2024"
+```
+
+### 🎵 Amateur
+```bash
+# Protéger votre musique
+python main.py
+# 1 → 2 → playlist_personnelle.mp3 → 1 → "musik123"
+```
+
+### 🎬 Vidéos
+```bash
+# Cacher vos films
+python main.py
+# 1 → 2 → film_prive.mp4 → 1 → "cinema2024"
+```
+
+---
+
+## 🔧 Algorithmes Disponibles
+
+### 1. 🛡️ AES-GCM avec Argon2 (Recommandé)
+- **Niveau** : Militaire
+- **Usage** : Documents sensibles, fichiers professionnels
+- **Avantages** : Le plus sécurisé, authentification intégrée
+
+### 2. 🔒 AES-CBC avec HMAC
+- **Niveau** : Standard industriel
+- **Usage** : Fichiers quotidiens, compatibilité maximale
+- **Avantages** : Compatible avec tous les systèmes
+
+### 3. ⚡ ChaCha20-Poly1305
+- **Niveau** : Moderne ultra-rapide
+- **Usage** : Mobile, streaming, gros fichiers
+- **Avantages** : Le plus rapide, idéal pour les vidéos
+
+---
+
+## 📋 FAQ - Questions Courantes
+
+**Q : J'ai une erreur "cryptography not found"**
+R : Lancez `pip install -r requirements.txt` dans le dossier
+
+**Q : Comment choisir entre AES-GCM et ChaCha20 ?**
+R : AES-GCM pour desktop, ChaCha20 pour mobile/serveur
+
+**Q : Puis-je chiffrer des images ?**
+R : Oui ! Fortress fonctionne avec TOUS les types de fichiers
+
+**Q : Mes fichiers sont-ils vraiment sécurisés ?**
+R : Oui ! Utilise les mêmes algorithmes que la NSA et les banques
+
+**Q : Comment déchiffrer ?**
+R : `python main.py` → 2 → 2 → fichier.enc → même mot de passe
+
+**Q : Puis-je partager les fichiers chiffrés ?**
+R : Oui ! Seul le mot de passe permet de les lire
+
+---
+
+## 🎯 Exemples Pratiques
+
+### Chiffrer un message secret
+```bash
+python main.py
+# 1 → 1 → "message secret" → 1 → "password123"
+# Résultat : {"encrypted_data": "...", "metadata": {...}}
+```
+
+### Déchiffrer un fichier
+```bash
+python main.py
+# 2 → 2 → document.pdf.enc → même mot de passe
+# Résultat : document.pdf restauré parfaitement
+```
+
+### Tester la force d'un mot de passe
+```bash
+python main.py
+# 7 → "MonPassword123"
+# Résultat : Score 8/10 - Très fort ✅
+```
+
+---
+
+## 🛠️ Installation Avancée
+
+### Environnement virtuel (Recommandé)
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate  # Windows
+pip install -r requirements.txt
+```
+
+### Vérification
 ```bash
 python main.py --help
+# Devrait afficher toutes les commandes disponibles
 ```
 
-## 🎯 Utilisation
+---
 
-### Commandes de base
+## 🔐 Sécurité et Fiabilité
 
-#### Chiffrer un fichier
+### ✅ Garanties
+- **Zéro connaissance** : Votre mot de passe n'est jamais stocké
+- **Intégrité** : Détection automatique de corruption
+- **Authentification** : Protection contre les modifications
+- **Standard militaire** : Algorithmes validés par la NSA
+
+### 🛡️ Menaces protégées
+- **Force brute** : Tests de résistance intégrés
+- **Dictionnaire** : Protection mots de passe faibles
+- **Écoute** : Chiffrement de bout en bout
+- **Corruption** : Vérification SHA-256 automatique
+
+---
+
+## 📞 Support et Contribuons
+
+### 🐛 Bug trouvé ?
+1. Notez l'erreur exacte
+2. Donnez le fichier utilisé
+3. Précisez votre système
+4. Contactez-nous !
+
+### 🚀 Idées d'amélioration
+- Interface graphique
+- Chiffrement dans le cloud
+- Gestion de mots de passe
+- Plugin navigateur
+
+---
+
+## 📜 Licence
+
+**Fortress** - Framework cryptographique éducatif et personnel
+
+**Usage** : Libre pour usage personnel et éducatif  
+**Commercial** : Contactez-nous pour licence entreprise
+
+---
+
+## 🎉 Conclusion
+
+**Fortress rend la cryptographie accessible à tous :**
+
+- ✅ **Simple** : Plus besoin d'être expert
+- ✅ **Universel** : TOUS les fichiers supportés  
+- ✅ **Sécurisé** : Niveau militaire
+- ✅ ** Gratuit** : Open source et libre
+
+**Protégez vos données dès maintenant !**
+
 ```bash
-python main.py encrypt -f document.pdf -m aes-gcm-argon2
+git clone https://github.com/votre-repo/Fortress
+cd Fortress
+python main.py
 ```
 
-#### Déchiffrer un fichier
-```bash
+**Vos données méritent Fortress !** 🏰🔐
 python main.py decrypt -f document.pdf.enc
 ```
 
