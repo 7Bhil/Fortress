@@ -269,8 +269,8 @@ class CryptoEngine:
                     
                     if method in self.methods:
                         crypto_method = self.methods[method]
-                        # Pour AES-GCM, passer le JSON complet, pas juste l'hexadécimal
-                        if method == 'aes-gcm-argon2':
+                        # Pour toutes les méthodes, passer le JSON complet, pas juste l'hexadécimal
+                        if method in ['aes-gcm-argon2', 'aes-cbc-hmac', 'chacha20-poly1305']:
                             result = crypto_method.decrypt(encrypted_message.encode('utf-8'), password)
                         else:
                             result = crypto_method.decrypt(encrypted_data, password)
