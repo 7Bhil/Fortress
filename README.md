@@ -1,6 +1,19 @@
 # 🏰 Fortress - Framework Cryptographique Universel
 
-**Outil de chiffrement accessible à tous - Protégez vos données en 3 clics !**
+**Créé par Bhilal CHITOU (Bhil€) - 2024**
+
+Outil de chiffrement accessible à tous - Protégez vos données en 3 clics !
+
+---
+
+## 👨‍💻 À propos du créateur
+
+**Bhilal CHITOU (Bhil€)** est un développeur passionné par la cybersécurité et l'accessibilité technologique. Fortress est son projet phare visant à démocratiser la cryptographie pour tous.
+
+**Contact :**
+- 📧 7bhilal.chitou7@gmail.com
+- 💼 LinkedIn : [votre-profil]
+- 🐙 GitHub : [votre-github]
 
 ---
 
@@ -130,7 +143,7 @@ python main.py
 ## 📋 FAQ - Questions Courantes
 
 **Q : J'ai une erreur "cryptography not found"**
-R : Lancez `pip install -r requirements.txt` dans le dossier
+R : Contactez-moi à 7bhilal.chitou7@gmail.com ou lancez `pip install -r requirements.txt`
 
 **Q : Comment choisir entre AES-GCM et ChaCha20 ?**
 R : AES-GCM pour desktop, ChaCha20 pour mobile/serveur
@@ -211,10 +224,10 @@ python main.py --help
 ## 📞 Support et Contribuons
 
 ### 🐛 Bug trouvé ?
-1. Notez l'erreur exacte
-2. Donnez le fichier utilisé
-3. Précisez votre système
-4. Contactez-nous !
+1. Contactez-moi directement : 7bhilal.chitou7@gmail.com
+2. Notez l'erreur exacte
+3. Donnez le fichier utilisé
+4. Précisez votre système
 
 ### 🚀 Idées d'amélioration
 - Interface graphique
@@ -241,16 +254,22 @@ python main.py --help
 - ✅ **Universel** : TOUS les fichiers supportés  
 - ✅ **Sécurisé** : Niveau militaire
 - ✅ ** Gratuit** : Open source et libre
+- ✅ **Créé avec ❤️** par Bhilal CHITOU (Bhil€)
 
 **Protégez vos données dès maintenant !**
 
 ```bash
-git clone https://github.com/votre-repo/Fortress
+git clone https://github.com/bhileu/Fortress
 cd Fortress
 python main.py
 ```
 
 **Vos données méritent Fortress !** 🏰🔐
+
+---
+
+**© 2024 Bhilal CHITOU (Bhil€) - Tous droits réservés**
+**Made with passion for cybersecurity and accessibility**
 python main.py decrypt -f document.pdf.enc
 ```
 

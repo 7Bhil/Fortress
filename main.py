@@ -19,8 +19,15 @@ from core.crypto_engine import crypto_engine
 from ui.display import DisplayManager
 
 def interactive_mode():
-    """Mode interactif simplifié"""
+    """Mode interactif avec menu guidé"""
     display = DisplayManager()
+    
+    # Message d'accueil avec signature
+    display.header("🏰 BIENVENUE DANS FORTRESS")
+    print("✨ Framework cryptographique créé par Bhilal CHITOU (Bhil€)")
+    print("🔐 Protégez vos données avec des algorithmes de niveau militaire")
+    print("📧 Contact : 7bhilal.chitou7@gmail.com")
+    print("")
     
     while True:
         display.header("🏰 FORTRESS - Menu Principal")
@@ -51,7 +58,9 @@ def interactive_mode():
             elif choice == "7":
                 password_strength_menu(display)
             elif choice == "8":
-                display.success("Au revoir !")
+                display.success("✓ Au revoir !")
+                print("🙏 Merci d'avoir utilisé Fortress - Bhilal CHITOU (Bhil€)")
+                print("📧 Pour me contacter : 7bhilal.chitou7@gmail.com")
                 break
             else:
                 display.error("Choix invalide. Réessayez.")
@@ -405,7 +414,7 @@ def show_banner():
     banner = """
 ╔══════════════════════════════════════════════════════════════╗
 ║                                                              ║
-║    🔐 Outil de Chiffrement Avancé v1.0.0                     ║
+║    🔐 Fortress v1.0.0 - Par Bhilal CHITOU (Bhil€)           ║
 ║                                                              ║
 ║    Framework cryptographique moderne avec :                  ║
 ║    • AES-GCM avec Argon2                                    ║
@@ -413,6 +422,7 @@ def show_banner():
 ║    • ChaCha20-Poly1305                                      ║
 ║    • Analyse de sécurité                                    ║
 ║                                                              ║
+║    Created by Bhil€ (Bhilal CHITOU) - 2024                   ║
 ║    Usage: python main.py --help                             ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝

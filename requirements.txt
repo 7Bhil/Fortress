@@ -1,2 +1,5 @@
 cryptography>=41.0.0
 argparse
+
+# Fortress - Created by Bhilal CHITOU (Bhil€) - 2024
+# Framework cryptographique universel
