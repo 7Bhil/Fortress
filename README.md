@@ -13,7 +13,7 @@ Outil de chiffrement accessible à tous - Protégez vos données en 3 clics !
 **Contact :**
 - 📧 7bhilal.chitou7@gmail.com
 - 💼 LinkedIn : [votre-profil]
-- 🐙 GitHub : [votre-github]
+- 🐙 GitHub : https://github.com/7Bhil
 
 ---
 
