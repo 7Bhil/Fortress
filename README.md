@@ -11,9 +11,9 @@ Outil de chiffrement accessible à tous - Protégez vos données en 3 clics !
 **Bhilal CHITOU (Bhil€)** est un développeur passionné par la cybersécurité et l'accessibilité technologique. Fortress est son projet phare visant à démocratiser la cryptographie pour tous.
 
 **Contact :**
-- 📧 7bhilal.chitou7@gmail.com
-- 💼 LinkedIn : [votre-profil]
-- 🐙 GitHub : https://github.com/7Bhil
+- 7bhilal.chitou7@gmail.com
+- LinkedIn : [\[votre-profil\]](https://www.linkedin.com/in/bhilal-chitou)
+- GitHub : [\[votre-github\]](https://github.com/7Bhil)
 
 ---
 
